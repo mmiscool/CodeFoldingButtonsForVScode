@@ -1,0 +1,65 @@
+{
+  "name": "fold-toolbar",
+  "displayName": "Fold Toolbar",
+  "description": "Adds Fold All / Unfold All to menu, editor title bar, and status bar.",
+  "version": "1.0.0",
+  "publisher": "you",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "commands": [
+      {
+        "command": "foldToolbar.foldAll",
+        "title": "Fold All",
+        "icon": {
+          "dark": "resources/dark/collapse-all.svg",
+          "light": "resources/light/collapse-all.svg"
+        }
+      },
+      {
+        "command": "foldToolbar.unfoldAll",
+        "title": "Unfold All",
+        "icon": {
+          "dark": "resources/dark/expand-all.svg",
+          "light": "resources/light/expand-all.svg"
+        }
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        { "command": "foldToolbar.foldAll" },
+        { "command": "foldToolbar.unfoldAll" }
+      ],
+      "menubar/edit": [
+        {
+          "command": "foldToolbar.foldAll",
+          "group": "2_folding@1"
+        },
+        {
+          "command": "foldToolbar.unfoldAll",
+          "group": "2_folding@2"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "foldToolbar.foldAll",
+          "group": "navigation@99"
+        },
+        {
+          "command": "foldToolbar.unfoldAll",
+          "group": "navigation@100"
+        }
+      ]
+    }
+  },
+  "scripts": {},
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmiscool/CodeFoldingButtonsForVScode"
+  }
+}
